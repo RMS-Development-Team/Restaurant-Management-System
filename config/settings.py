@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'accounts',
     'menu',
     'restaurant',
+
    
 ]
 
@@ -134,4 +135,6 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+AUTH_USER_MODEL = 'accounts.User'
 
