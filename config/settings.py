@@ -41,9 +41,7 @@ INSTALLED_APPS = [
     'accounts',
     'menu',
     'restaurant',
-    'orders',
-    'kitchen',
-    'billing',
+   
 ]
 
 MIDDLEWARE = [
@@ -136,3 +134,4 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
