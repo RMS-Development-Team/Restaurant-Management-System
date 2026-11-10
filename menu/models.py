@@ -1,9 +1,6 @@
 from django.db import models
 
 
-from django.db import models
-
-
 # 1. Menu Categories Table
 class MenuCategory(models.Model):
 
