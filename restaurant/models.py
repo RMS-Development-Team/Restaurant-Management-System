@@ -14,3 +14,28 @@ class RestaurantTable(models.Model):
 
     def __str__(self):
         return f"Table {self.table_number}"
+
+
+class RestaurantLocation(models.Model):
+
+    name = models.CharField(max_length=150)
+
+    latitude = models.DecimalField(
+        max_digits=9,
+        decimal_places=6
+    )
+
+    longitude = models.DecimalField(
+        max_digits=9,
+        decimal_places=6
+    )
+
+    geofence_radius = models.PositiveIntegerField(
+        default=150
+    )
+
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
+
