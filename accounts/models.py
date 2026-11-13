@@ -37,9 +37,10 @@ class User(AbstractUser):
             COUNTER_STAFF = "counter_staff", "Counter Staff"
             KITCHEN_STAFF = "kitchen_staff", "Kitchen Staff" 
         name=models.CharField(max_length=100)
+        user_id = models.AutoField(primary_key=True)
         mobile_number=models.CharField(max_length=15,unique=True)
-        email=models.EmailField(blank=True,null=True)
-        role=models.CharField(max_length=20,choices=Role.choices,default=Role.CUSTOMER)
+        email = models.EmailField(max_length=100, blank=True, null=True)
+        role = models.CharField(max_length=30,choices=Role.choices,default=Role.CUSTOMER)
         objects=UserManager()
         USERNAME_FIELD='mobile_number'
         REQUIRED_FIELDS=["name"]
@@ -51,10 +52,11 @@ class User(AbstractUser):
 class OTPVerification(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,
     related_name="otp_verifications")
+    otp_id = models.AutoField(primary_key=True)
     otp_hash=models.CharField(max_length=255)
     created_at=models.DateTimeField(auto_now_add=True)
-    is_verified = models.BooleanField(default=False)
-    attempts=models.PositiveIntegerField(default=0)
+    is_used = models.BooleanField(default=False)
+    verification_attempts = models.PositiveIntegerField(default=0)
     expires_at = models.DateTimeField()
     
     def __str__(self):

@@ -1,9 +1,11 @@
 from django.contrib import admin
 from .models import User, OTPVerification
+
+
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     list_display = (
-        "id",
+        "user_id",
         "name",
         "mobile_number",
         "email",
@@ -19,13 +21,13 @@ class UserAdmin(admin.ModelAdmin):
 @admin.register(OTPVerification)
 class OTPVerificationAdmin(admin.ModelAdmin):
     list_display = (
-        "id",
+        "otp_id",
         "user",
-        "is_verified",
-        "attempts",
+        "is_used",
+        "verification_attempts",
         "created_at",
         "expires_at",
     )
 
-    list_filter = ("is_verified", "created_at")
+    list_filter = ("is_used", "created_at")
     readonly_fields = ("created_at",)
