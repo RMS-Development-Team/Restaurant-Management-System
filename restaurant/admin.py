@@ -9,7 +9,7 @@ class RestaurantTableAdmin(admin.ModelAdmin):
     list_display = (
         "table_number",
         "capacity",
-        "qr_code",
+        "qr_identifier",
         "is_active",
     )
 
