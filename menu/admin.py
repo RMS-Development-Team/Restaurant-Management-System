@@ -12,7 +12,7 @@ class MenuCategoryAdmin(admin.ModelAdmin):
         "description",
     )
 
-    search_fields = ( "category_name")
+    search_fields = ( "category_name",)
     ordering = ("category_name",)
 
 
