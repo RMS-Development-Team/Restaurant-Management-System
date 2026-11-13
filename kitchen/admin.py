@@ -14,14 +14,7 @@ class KitchenTicketAdmin(admin.ModelAdmin):
         "created_by_user",
     )
 
-    list_filter = (
-        "ticket_status",
-        "created_at",
-    )
-
-    search_fields = (
-        "ticket_number",
-        "order__id",
-    )
-
+    list_filter = ("ticket_status","created_at")
+    search_fields = ( "ticket_number", "order__id" )
     ordering = ("-created_at",)
+    readonly_fields = ("ticket_id", "created_at")
