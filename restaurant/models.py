@@ -4,7 +4,7 @@ from django.db import models
 class RestaurantTable(models.Model):
     table_number = models.PositiveIntegerField(unique=True)
     capacity = models.PositiveSmallIntegerField()
-    qr_code = models.UUIDField(
+    qr_identifier = models.UUIDField(
         default=uuid.uuid4,
         unique=True,
         editable=False
